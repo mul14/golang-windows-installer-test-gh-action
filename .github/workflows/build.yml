@@ -1,0 +1,16 @@
+name: Build
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+      - name: Install
+        run: |
+          ls -l
+          GOOS=windows GOARCH=amd64 go build -o raiden.exe ./cmd/app/main.go
+          ls -l
