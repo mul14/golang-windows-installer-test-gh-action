@@ -15,3 +15,9 @@ jobs:
           sudo apt-get install -y nsis
           which makensis
           makensis build.nsi
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: raiden.exe
+          make_latest: true
+          generate_release_notes: true
