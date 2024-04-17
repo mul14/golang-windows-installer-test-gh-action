@@ -1,5 +1,5 @@
 Name "Raiden"
-Outfile "installer.exe"
+Outfile "Raiden Installer.exe"
 
 InstallDir $PROFILE\raiden
 ShowInstDetails show
@@ -11,7 +11,7 @@ UninstPage instfiles
 
 Section
  	SetOutPath $INSTDIR
-	File main.exe
+	File raiden.exe
 	
 	;nsExec::Exec 'setx PATH $INSTDIR;%PATH%'
 	StrCpy $0 $INSTDIR
@@ -22,7 +22,7 @@ Section
 SectionEnd
 
 Section "Uninstall"
-	Delete $INSTDIR\main.exe
+	Delete $INSTDIR\raiden.exe
 	Delete $INSTDIR\uninstaller.exe
 ;	RMDir $INSTDIR
 SectionEnd
