@@ -18,6 +18,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
-          files: raiden.exe
+          files:
+            Raiden Setup.exe
           make_latest: true
           generate_release_notes: true
