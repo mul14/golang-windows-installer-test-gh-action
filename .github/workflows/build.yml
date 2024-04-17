@@ -11,11 +11,7 @@ jobs:
       - uses: actions/setup-go@v5
       - name:  Build
         run: |
+          apt-get install -y nsis
+          which makensis
+          makensis
           GOOS=windows GOARCH=amd64 go build -o raiden.exe ./cmd/app/main.go
-      - name: makensis
-        uses: joncloud/makensis-action@v4.1
-        with:
-          script-file: build.nsi
-      - name: Install
-        run: |
-          ls -l
