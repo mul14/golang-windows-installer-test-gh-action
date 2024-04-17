@@ -1,28 +1,29 @@
-Name "Raiden"
-Outfile "Raiden Installer.exe"
+!include "MUI2.nsh"
 
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
+!insertmacro MUI_PAGE_FINISH
+!insertmacro MUI_UNPAGE_CONFIRM
+!insertmacro MUI_UNPAGE_INSTFILES
+
+!define NAME "Raiden"
+!define APPFILE "raiden.exe"
+
+Name "${NAME}"
+Outfile "${NAME} Setup.exe"
 InstallDir $PROFILE\raiden
 ShowInstDetails show
 RequestExecutionLevel user
-Page directory
-Page instfiles
-UninstPage uninstConfirm
-UninstPage instfiles
 
 Section
  	SetOutPath $INSTDIR
 	File raiden.exe
-	
-	;nsExec::Exec 'setx PATH $INSTDIR;%PATH%'
-	StrCpy $0 $INSTDIR
-	DetailPrint "$$0" 
-	;${EnvVarUpdate} $0 "PATH" "A" "HKCU" 
-
 	WriteUninstaller $INSTDIR\uninstaller.exe
 SectionEnd
 
 Section "Uninstall"
 	Delete $INSTDIR\raiden.exe
 	Delete $INSTDIR\uninstaller.exe
-;	RMDir $INSTDIR
+	RMDir $INSTDIR
 SectionEnd
