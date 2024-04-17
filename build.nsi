@@ -12,7 +12,7 @@
 !define APPFILE "raiden.exe"
 
 Name "${NAME}"
-Outfile "${NAME} Setup.exe"
+Outfile "${NAME}Setup.exe"
 InstallDir $PROFILE\raiden
 ShowInstDetails show
 RequestExecutionLevel user

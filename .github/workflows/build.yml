@@ -17,8 +17,9 @@ jobs:
           makensis build.nsi
       - name: Release
         uses: softprops/action-gh-release@v2
+        if: startsWith(github.ref, 'refs/tags/')
         with:
           files:
-            Raiden Setup.exe
+            RaidenSetup.exe
           make_latest: true
           generate_release_notes: true
