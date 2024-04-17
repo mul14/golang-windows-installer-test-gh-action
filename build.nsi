@@ -13,18 +13,18 @@
 
 Name "${NAME}"
 Outfile "${NAME}Setup.exe"
-InstallDir $PROFILE\raiden
+InstallDir $WINDIR
 ShowInstDetails show
 RequestExecutionLevel user
 
 Section
  	SetOutPath $INSTDIR
 	File raiden.exe
-	WriteUninstaller $INSTDIR\uninstaller.exe
+	WriteUninstaller $INSTDIR\raiden-uninstall.exe
 SectionEnd
 
 Section "Uninstall"
 	Delete $INSTDIR\raiden.exe
-	Delete $INSTDIR\uninstaller.exe
+	Delete $INSTDIR\raiden-uninstall.exe
 	RMDir $INSTDIR
 SectionEnd
