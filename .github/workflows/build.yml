@@ -9,8 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
+      - name:  Build
+        run: |
+          GOOS=windows GOARCH=amd64 go build -o raiden.exe ./cmd/app/main.go
+      - name: makensis
+        uses: joncloud/makensis-action@v4.1
+        with:
+          script-file: build.nsi
       - name: Install
         run: |
-          ls -l
-          GOOS=windows GOARCH=amd64 go build -o raiden.exe ./cmd/app/main.go
           ls -l
